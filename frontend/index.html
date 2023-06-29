@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Microondas da Benner</title>
+</head>
+<body>
+    <div class="container">
+        <div class="timer">
+            <span class="timer-part timer-part-minutes">00</span>
+            <span class="timer-part">:</span>
+            <span class="timer-part timer-part-seconds">00</span>
+        </div>
+        <div class="form">
+            <form id="form">
+                <div class="form-row">
+                    <div class="input-data">
+                        <input id="time" type="number" name="time" placeholder="Tempo (segundos)" required>
+                        <div class="underline"></div>                
+                    </div>
+                    <div class="input-data">
+                        <input id="power" type="number" name="power" placeholder="Potência (Watts)">
+                        <div class="underline"></div>
+                    </div>
+                </div>
+                <div class="form-row submit-btn">
+                    <div class="input-data">
+                    <div class="inner"></div>
+                    <input type="submit" value="Iniciar">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="./assets/scripts/script.js"></script>
+</body>
+</html>
