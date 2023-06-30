@@ -7,7 +7,30 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.CustomSchemaIds(x => x.FullName);
+    c.SwaggerDoc("v1",
+        new Microsoft.OpenApi.Models.OpenApiInfo
+        {
+            Title = "Benner - Microwave",
+            Version = "v1",
+            Description = "API responsável pela gestão do microondas da Benner",
+            Contact = new Microsoft.OpenApi.Models.OpenApiContact
+            {
+                Name = "Benner - Microwave",
+            }
+        });
+    c.CustomSchemaIds(type => type.ToString());
+});
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", builder =>
+    {
+        builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+    });
+});
 
 //IoC Services
 builder.Services.AddLocalServices();
@@ -22,6 +45,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
+app.UseCors("AllowAllOrigins");
 
 app.MapControllers();
 

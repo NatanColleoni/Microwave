@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BennerMicrowave.Business\BennerMicrowave.Business.csproj" />
     <ProjectReference Include="..\BennerMicrowave.Infra\BennerMicrowave.Infra.csproj" />
   </ItemGroup>
 

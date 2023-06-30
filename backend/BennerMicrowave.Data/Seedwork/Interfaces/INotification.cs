@@ -5,7 +5,7 @@ namespace BennerMicrowave.Data.Seedwork.Interfaces
 {
     public interface INotification
     {
-        Notification NotificationModel { get; }
+        List<NotificationModel> ListNotificationModel { get; }
         bool HasNotification { get; }
         void AddNotification(string key, string message, ENotificationType notificationType);
     }

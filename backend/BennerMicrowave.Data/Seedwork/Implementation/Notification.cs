@@ -1,17 +1,18 @@
 ﻿using BennerMicrowave.Data.Seedwork.Enums;
 using BennerMicrowave.Data.Seedwork.Interfaces;
+using BennerMicrowave.Data.Seedwork.Models;
 
 namespace BennerMicrowave.Data.Seedwork.Implementation
 {
     public class Notification : INotification
     {
-        private Models.Notification _notification;
-        public bool HasNotification => _notification != null;
-        public Models.Notification NotificationModel => _notification;
+        public List<NotificationModel> _notification = new List<NotificationModel>();
+        public bool HasNotification => _notification.Any();
+        public List<NotificationModel> ListNotificationModel => _notification;
 
         public void AddNotification(string key, string message, ENotificationType notificationType)
         {
-            _notification = new Models.Notification(key, message, notificationType);
+            _notification.Add(new NotificationModel(key, message, notificationType));
         }
     }
 }

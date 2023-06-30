@@ -1,4 +1,4 @@
-﻿namespace BennerMicrowave.Data
+﻿namespace BennerMicrowave.Business.Response
 {
     public class BaseResponse
     {

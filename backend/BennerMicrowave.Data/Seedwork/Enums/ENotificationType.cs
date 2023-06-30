@@ -2,8 +2,8 @@
 {
     public enum ENotificationType
     {
-        BusinessRules = 2,
-        NotFound = 3,
-        BadRequestError = 4,
+        BusinessRulesError = 1,
+        BadRequestError = 2,
+        InternalServerError = 3
     }
 }

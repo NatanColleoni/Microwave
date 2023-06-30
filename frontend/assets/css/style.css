@@ -137,3 +137,7 @@ input::-webkit-inner-spin-button {
   font-size: 2rem;
   font-weight: bold;
 }
+
+.d-none {
+  display: none !important;
+}

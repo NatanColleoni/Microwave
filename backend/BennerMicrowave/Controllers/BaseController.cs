@@ -1,9 +1,7 @@
-﻿using BennerMicrowave.Data;
+﻿using BennerMicrowave.Business.Response;
 using BennerMicrowave.Data.Seedwork.Enums;
 using BennerMicrowave.Data.Seedwork.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
-using System.Reflection.Metadata.Ecma335;
 
 namespace BennerMicrowave.API.Controllers
 {
@@ -33,14 +31,13 @@ namespace BennerMicrowave.API.Controllers
                     response = new BaseResponse();
 
                 response.Success = false;
-                response.Data = _notification.NotificationModel;
+                response.Data = _notification.ListNotificationModel;
 
-                var notificationType = _notification.NotificationModel.NotificationType;
+                var notificationType = _notification.ListNotificationModel[0].NotificationType;
 
                 return notificationType switch
                 {
-                    ENotificationType.BusinessRules => Conflict(response),
-                    ENotificationType.NotFound => NotFound(response),
+                    ENotificationType.BusinessRulesError => Conflict(response),
                     ENotificationType.BadRequestError => BadRequest(response),
                     _ => StatusCode(StatusCodes.Status500InternalServerError, response),
                 };
